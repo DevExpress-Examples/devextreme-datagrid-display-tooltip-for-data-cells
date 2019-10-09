@@ -1,7 +1,3 @@
-# DataGrid - Master-Detail - Access every detail grid from code
+# DataGrid - Display tooltip for data cells
 
-This example illustrates how to access the detail DataGrid instance from the [onClick](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxButton/Configuration/#onClick) event handler of the button placed to the [masterDetail template](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/masterDetail/#template).
-
-The main idea is to generate every detail grid's `id` dynamically so that we can address the grid's instance in the `onClick` event handler later. Although this example is focused on the DataGrid widget, the same approach is applicable for any other widget placed into the masterDetail template.
-
-[Run Online](https://devexpress-examples.github.io/DataGrid-Master-Detail-Access-every-detail-grid-from-code/jquery/index.html)
+This example illustrates how to display a custom [dxTooltip](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxTooltip/) when the end-user hovers over cells of a certain column with the mouse. We handle the [onCellPrepared](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/#onCellPrepared) event to subscribe to the cell's mouseover / mouseout events and populate the tooltip with the associated data row values.
