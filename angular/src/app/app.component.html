@@ -1,0 +1,18 @@
+<dx-data-grid
+  [dataSource]="employees"
+  keyExpr="ID"
+  [showBorders]="true"
+  [width]="500"
+  [columns]="['FirstName', 'LastName', 'BirthDate']"
+  (onCellPrepared)="onCellPrepared($event)">
+</dx-data-grid>
+
+<dx-tooltip position="right">
+  <div *dxTemplate="let data of 'content'">
+    <div class='tooltipContent'>
+      <div><b>Position:</b> {{currentEmployee.Position}}</div>
+      <div><b>State:</b> {{currentEmployee.State}}</div>
+    </div>
+  </div>
+</dx-tooltip>
+
