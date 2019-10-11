@@ -1,0 +1,46 @@
+@using mvc.Models
+
+<style type="text/css">
+    .tooltipContent div {
+        text-align: left;
+    }
+</style>
+
+<script type="text/javascript">
+    //<![CDATA[
+    function onCellPrepared(e) {
+        if (e.rowType === "data" && e.column.dataField === "FirstName") {
+            var tooltipInstance = $("#tooltip").dxTooltip("instance");
+            e.cellElement.mouseover(function (arg) {
+                tooltipInstance.option("contentTemplate", function (contentElement) {
+                    contentElement.html(`<div class='tooltipContent'><div><b>Position:</b> ${e.data.Position}</div>` +
+                        `<div><b>State:</b> ${e.data.State}</div></div>`);
+                });
+
+                tooltipInstance.show(arg.target);
+            });
+
+            e.cellElement.mouseout(function (arg) {
+                tooltipInstance.hide();
+            });
+        }
+    }
+    //]]>
+</script>
+
+@(Html.DevExtreme().DataGrid<Employee>()
+    .ShowBorders(true)
+    .Width(500)
+    .DataSource(d => d.WebApi().Controller("Employees").Key("ID"))
+    .Columns(columns => {
+        columns.AddFor(m => m.FirstName);
+        columns.AddFor(m => m.LastName);
+        columns.AddFor(m => m.BirthDate);
+    })
+    .OnCellPrepared("onCellPrepared")
+)
+
+@(Html.DevExtreme().Tooltip()
+    .ID("tooltip")
+    .Position(Position.Right)
+)
