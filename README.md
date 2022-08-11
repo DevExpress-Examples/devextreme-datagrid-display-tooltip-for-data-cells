@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # DataGrid for DevExtreme - Display tooltip for data cells
 
-This example illustrates how to display a custom [Tooltip](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxTooltip/) when the cursor hovers over the cells of a certain column. 
+This example illustrates how to display a custom [Tooltip](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxTooltip/) when the mouse hovers over the cells of a certain column. 
 
 ![A custom tooltip](devextreme-datagrid-display-tooltip-for-data-cells.png)
 
