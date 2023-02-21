@@ -11,7 +11,7 @@ This example illustrates how to display a custom [Tooltip](https://js.devexpress
 
 Handle the [onCellPrepared](https://js.devexpress.com/Documentation/ApiReference/UI_Widgets/dxDataGrid/Configuration/) event to subscribe to the cell's mouseover/mouseout event and populate the Tooltip with the associated data row values.
 
-## Files to Look At
+## Files to Review
 
 - **jQuery**
     - [index.html](jquery/index.html)
