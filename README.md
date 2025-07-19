@@ -15,18 +15,18 @@ Handle the [onCellPrepared](https://js.devexpress.com/Documentation/ApiReference
 ## Files to Review
 
 - **jQuery**
-    - [index.html](jquery/index.html)
+    - [index.html](jQuery/index.html)
 - **AngularJS**
-    - [index.html](angularjs/index.html)
+    - [index.html](AngularJS/index.html)
 - **Angular**
-    - [app.component.html](angular/src/app/app.component.html)
-    - [app.component.ts](angular/src/app/app.component.ts)
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
 - **Vue**
-    - [App.vue](vue/src/App.vue)
+    - [App.vue](Vue/src/App.vue)
 - **React**
-    - [App.js](react/src/App.js)
-- **MVC**    
-    - [Index.cshtml](mvc/Views/Home/Index.cshtml)
+    - [App.js](React/src/App.js)
+- **ASP.NET MVC**    
+    - [Index.cshtml](ASP.NET MVC/Views/Home/Index.cshtml)
 
 ## Documentation
 
