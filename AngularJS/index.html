@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Sample</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.1.6/css/dx.light.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
+
+    <style type="text/css">
+        .tooltipContent div {
+            text-align: left;
+        }
+    </style>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var DemoApp = angular.module('DemoApp', ['dx']);
+
+        DemoApp.controller('DemoController', function DemoController($scope) {
+            $scope.gridOptions = {
+                dataSource: employees,
+                keyExpr: "ID",
+                showBorders: true,
+                width: 500,
+                columns: ["FirstName", "LastName", "BirthDate"],
+                onCellPrepared: function (e) {
+                    if (e.rowType === "data" && e.column.dataField === "FirstName") {
+                        e.cellElement.mouseover(function (arg) {
+                            $scope.currentEmployee = e.data;
+                            $scope.tooltipInstance.show(arg.target);
+                        });
+
+                        e.cellElement.mouseout(function (arg) {
+                            $scope.tooltipInstance.hide();
+                        });
+                    }
+                }
+            };
+
+            $scope.tooltipOptions = {
+                position: "right",
+                onInitialized: function (e) {
+                    $scope.tooltipInstance = e.component;
+                }
+            }
+        });
+
+        var employees = [{
+            "ID": 1,
+            "Prefix": "Mr.",
+            "FirstName": "John",
+            "LastName": "Heart",
+            "Position": "CEO",
+            "State": "California",
+            "BirthDate": "1964/03/16"
+        },
+        {
+            "ID": 2,
+            "Prefix": "Mrs.",
+            "FirstName": "Olivia",
+            "LastName": "Peyton",
+            "Position": "Sales Assistant",
+            "State": "California",
+            "BirthDate": "1981/06/03"
+        },
+        {
+            "ID": 3,
+            "Prefix": "Mr.",
+            "FirstName": "Robert",
+            "LastName": "Reagan",
+            "Position": "CMO",
+            "State": "Arkansas",
+            "BirthDate": "1974/09/07"
+        }];
+        //]]>
+    </script>
+</head>
+<body>
+    <div ng-app="DemoApp" ng-controller="DemoController">
+        <div dx-data-grid="gridOptions">
+        </div>
+        <div dx-tooltip="tooltipOptions">
+            <div class='tooltipContent'>
+                <div><b>Position:</b> {{currentEmployee.Position}}</div>
+                <div><b>State:</b> {{currentEmployee.State}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
