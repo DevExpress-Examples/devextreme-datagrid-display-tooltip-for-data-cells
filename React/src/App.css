@@ -2,3 +2,7 @@
   margin: 50px;
   width: 90vw;
 }
+
+.tooltipContent div {
+  text-align: left;
+}
