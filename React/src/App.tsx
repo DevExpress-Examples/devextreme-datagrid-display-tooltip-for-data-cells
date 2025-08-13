@@ -20,7 +20,7 @@ function App(): JSX.Element {
         tooltipRef.current?.instance().show(arg.target as Element);
       })
 
-      on(e.cellElement, "mouseout", (arg: MouseEvent)=> {
+      on(e.cellElement, "mouseout", ()=> {
         tooltipRef.current?.instance().hide();
       })
     }
