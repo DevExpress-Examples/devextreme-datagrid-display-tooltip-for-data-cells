@@ -3,6 +3,7 @@
 This template should help get you started developing with Vue 3 in Vite and DevExtreme components.
 
 This project includes:
+
 - Vue 3.2.45
 - TypeScript 4.7.4
 - Vite for fast development and building
@@ -19,12 +20,13 @@ For best TypeScript support in VS Code, see the official Vue guide: [Using Vue w
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. For editor integration, see the official Vue guide: [Using Vue with TypeScript in VS Code](https://vuejs.org/guide/typescript/overview#using-vue-with-typescript).
 
-
 > **Note:**
 > To type-check your project, use:
+>
 > ```sh
 > npm run type-check
 > ```
+>
 > This uses `vue-tsc` to provide type checking for `.vue` files, as recommended in the [official Vue TypeScript guide](https://vuejs.org/guide/typescript/overview.html).
 
 ## Customize configuration
@@ -40,6 +42,7 @@ npm install
 ## Code Structure
 
 **Source Files:**
+
 - `src/App.vue` - Main Vue application component with router
 - `src/main.ts` - Application entry point
 - `src/components/HomeContent.vue` - Example component with DevExtreme Button
@@ -49,6 +52,7 @@ npm install
 - `src/assets/` - Static assets
 
 **Configuration Files:**
+
 - `vite.config.ts` - Vite configuration with Vue and DevExtreme optimizations
 - `package.json` - Dependencies and scripts
 - `tsconfig.json` - TypeScript configuration
@@ -79,6 +83,7 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
 ### Further help
 
 You can learn more about Vue in the [Vue documentation](https://vuejs.org/guide/introduction.html).
