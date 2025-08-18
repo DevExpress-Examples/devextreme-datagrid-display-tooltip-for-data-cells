@@ -2,3 +2,7 @@
   margin: 50px;
   width: 90vw;
 }
+
+.tool-tip-content div {
+  text-align: left;
+}

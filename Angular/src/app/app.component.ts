@@ -1,20 +1,36 @@
-import { Component } from '@angular/core';
-import { ClickEvent } from 'devextreme/ui/button';
+import { Component, ViewChild } from '@angular/core';
+import { DxTooltipComponent } from 'devextreme-angular';
+import { CellPreparedEvent } from 'devextreme/ui/data_grid';
+import { on } from 'devextreme/events';
+import { Employee, Service } from './app.service';
 
 @Component({
   selector: 'app-root',
+  providers: [Service],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular';
+  @ViewChild(DxTooltipComponent) tooltip?: DxTooltipComponent;
 
-  counter = 0;
+  employees: Employee[];
 
-  buttonText = 'Click count: 0';
+  currentEmployee: Employee | null = null;
 
-  onClick(e: ClickEvent): void {
-    this.counter++;
-    this.buttonText = `Click count: ${this.counter}`;
+  constructor(service: Service) {
+    this.employees = service.getEmployees();
+  }
+
+  onCellPrepared(e: CellPreparedEvent): void {
+    if (e.rowType === 'data' && e.column.dataField === 'FirstName') {
+      on(e.cellElement, 'mouseover', async (arg: MouseEvent) => {
+        this.currentEmployee = e.data;
+        await this.tooltip?.instance.show(arg.target as Element);
+      });
+
+      on(e.cellElement, 'mouseout', async (arg: MouseEvent) => {
+        await this.tooltip?.instance.hide();
+      });
+    }
   }
 }

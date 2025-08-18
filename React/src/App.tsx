@@ -1,16 +1,49 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './App.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import Button from 'devextreme-react/button';
+import { on } from 'devextreme/events';
+import DataGrid, { Column, type DataGridTypes } from 'devextreme-react/data-grid';
+import Tooltip, { type TooltipRef } from 'devextreme-react/tooltip';
+
+import { employees, type Employee } from './data';
 
 function App(): JSX.Element {
-  var [count, setCount] = useState<number>(0);
-  const clickHandler = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, [setCount]);
+  const [currentEmployee, setCurrentEmployee] = useState<Employee | null>(null);
+
+  const tooltipRef = useRef<TooltipRef | null>(null);
+
+  const onCellPrepared = useCallback((e: DataGridTypes.CellPreparedEvent) => {
+    if (e.rowType === 'data' && e.column.dataField === 'FirstName') {
+      on(e.cellElement, 'mouseover', async(arg: MouseEvent) => {
+        setCurrentEmployee(e.data);
+        await tooltipRef.current?.instance().show(arg.target as Element);
+      });
+
+      on(e.cellElement, 'mouseout', async() => {
+        await tooltipRef.current?.instance().hide();
+      });
+    }
+  }, []);
+
   return (
-    <div className="main">
-      <Button text={`Click count: ${count}`} onClick={clickHandler} />
+    <div>
+      <DataGrid
+        dataSource={employees}
+        keyExpr="ID"
+        showBorders={true}
+        width={500}
+        onCellPrepared={onCellPrepared}
+      >
+        <Column dataField="FirstName" />
+        <Column dataField="LastName" />
+        <Column dataField="BirthDate" dataType="date" />
+      </DataGrid>
+      <Tooltip ref={tooltipRef} position="right">
+        <div className="tool-tip-content">
+          <div><b>Position:</b> {currentEmployee?.Position}</div>
+          <div><b>State:</b> {currentEmployee?.State}</div>
+        </div>
+      </Tooltip>
     </div>
   );
 }

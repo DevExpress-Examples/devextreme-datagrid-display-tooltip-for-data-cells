@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint-html": "prettier --check .",
+    "lint-html": "prettier --check  .",
     "lint-ts": "eslint --ext .ts .",
     "lint-css": "stylelint src/**/*.{css,scss} --allow-empty-input",
     "lint": "npm-run-all -p -c lint-ts lint-css lint-html"
