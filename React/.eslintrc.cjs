@@ -15,6 +15,8 @@ module.exports = {
       sourceType: 'module',
     },
     rules: {
+      "space-before-function-paren": "off",              // disable base
+      "@typescript-eslint/space-before-function-paren": ["error", "never"], 
       "react/react-in-jsx-scope": "off",
       "import/no-extraneous-dependencies": ["error", {
         "devDependencies": [

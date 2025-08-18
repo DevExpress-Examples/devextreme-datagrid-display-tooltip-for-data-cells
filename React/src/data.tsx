@@ -16,7 +16,7 @@ export const employees: Employee[] = [
     LastName: 'Heart',
     Position: 'CEO',
     State: 'California',
-    BirthDate: '1964/03/16'
+    BirthDate: '1964/03/16',
   },
   {
     ID: 2,
@@ -25,7 +25,7 @@ export const employees: Employee[] = [
     LastName: 'Peyton',
     Position: 'Sales Assistant',
     State: 'California',
-    BirthDate: '1981/06/03'
+    BirthDate: '1981/06/03',
   },
   {
     ID: 3,
@@ -34,6 +34,6 @@ export const employees: Employee[] = [
     LastName: 'Reagan',
     Position: 'CMO',
     State: 'Arkansas',
-    BirthDate: '1974/09/07'
-  }
+    BirthDate: '1974/09/07',
+  },
 ];
