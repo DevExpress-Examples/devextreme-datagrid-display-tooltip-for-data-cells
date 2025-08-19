@@ -36,7 +36,6 @@ Handle the [onCellPrepared](https://js.devexpress.com/Documentation/ApiReference
 
 - [DataGrid for DevExtreme - How to implement a custom editing form using the Popup and Form components](https://github.com/DevExpress-Examples/devextreme-datagrid-custom-editing-form)
 
-- [DataGrid for DevExtreme - How to implement a custom editing form in ASP.NET MVC](https://github.com/DevExpress-Examples/devextreme-asp-net-mvc-datagrid-custom-editing-form)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
