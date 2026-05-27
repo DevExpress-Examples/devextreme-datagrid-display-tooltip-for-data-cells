@@ -1,5 +1,5 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "extends": "@vue/tsconfig/tsconfig.json",
   "include": [
     "vite.config.*",
     "vitest.config.*",
@@ -8,6 +8,9 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ],
+    "verbatimModuleSyntax": true
   }
 }
