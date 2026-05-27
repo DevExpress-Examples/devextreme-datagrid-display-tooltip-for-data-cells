@@ -3,9 +3,12 @@ import { DxTooltipComponent } from 'devextreme-angular';
 import { CellPreparedEvent } from 'devextreme/ui/data_grid';
 import { on } from 'devextreme/events';
 import { Employee, Service } from './app.service';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { DxTooltipModule } from 'devextreme-angular/ui/tooltip';
 
 @Component({
   selector: 'app-root',
+  imports: [DxDataGridModule, DxTooltipModule],
   providers: [Service],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
