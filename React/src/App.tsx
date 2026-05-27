@@ -5,7 +5,7 @@ import { on } from 'devextreme/events';
 import DataGrid, { Column, type DataGridTypes } from 'devextreme-react/data-grid';
 import Tooltip, { type TooltipRef } from 'devextreme-react/tooltip';
 
-import { employees, type Employee } from './data';
+import { employees, type Employee } from './data.tsx';
 
 function App(): JSX.Element {
   const [currentEmployee, setCurrentEmployee] = useState<Employee | null>(null);
@@ -14,13 +14,13 @@ function App(): JSX.Element {
 
   const onCellPrepared = useCallback((e: DataGridTypes.CellPreparedEvent) => {
     if (e.rowType === 'data' && e.column.dataField === 'FirstName') {
-      // eslint-disable-next-line @typescript-eslint/space-before-function-paren
+      // eslint-disable-next-line @stylistic/space-before-function-paren
       on(e.cellElement, 'mouseover', async(arg: MouseEvent) => {
         setCurrentEmployee(e.data);
         await tooltipRef.current?.instance().show(arg.target as Element);
       });
 
-      // eslint-disable-next-line @typescript-eslint/space-before-function-paren
+      // eslint-disable-next-line @stylistic/space-before-function-paren
       on(e.cellElement, 'mouseout', async() => {
         await tooltipRef.current?.instance().hide();
       });

@@ -31,7 +31,7 @@ export class AppComponent {
         await this.tooltip?.instance.show(arg.target as Element);
       });
 
-      on(e.cellElement, 'mouseout', async (arg: MouseEvent) => {
+      on(e.cellElement, 'mouseout', async (_arg: MouseEvent) => {
         await this.tooltip?.instance.hide();
       });
     }
