@@ -14,14 +14,12 @@ function App(): JSX.Element {
 
   const onCellPrepared = useCallback((e: DataGridTypes.CellPreparedEvent) => {
     if (e.rowType === 'data' && e.column.dataField === 'FirstName') {
-      // eslint-disable-next-line @stylistic/space-before-function-paren
-      on(e.cellElement, 'mouseover', async(arg: MouseEvent) => {
+      on(e.cellElement, 'mouseover', async (arg: MouseEvent) => {
         setCurrentEmployee(e.data);
         await tooltipRef.current?.instance().show(arg.target as Element);
       });
 
-      // eslint-disable-next-line @stylistic/space-before-function-paren
-      on(e.cellElement, 'mouseout', async() => {
+      on(e.cellElement, 'mouseout', async () => {
         await tooltipRef.current?.instance().hide();
       });
     }
