@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DxTooltipComponent } from 'devextreme-angular';
 import { CellPreparedEvent } from 'devextreme/ui/data_grid';
 import { on } from 'devextreme/events';
@@ -11,6 +11,7 @@ import { DxTooltipModule } from 'devextreme-angular/ui/tooltip';
   imports: [DxDataGridModule, DxTooltipModule],
   providers: [Service],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
